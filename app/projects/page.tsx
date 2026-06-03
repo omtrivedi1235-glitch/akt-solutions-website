@@ -23,7 +23,7 @@ const projects = [
     ],
   },
   {
-    title: "Automated Parking Guidance & CCTV Systems",
+    title: "Automated Parking Guidance & CCTV Systems: Phase 1",
     category: "Technology & Security",
     status: "Completed",
     year: "2025",
@@ -65,17 +65,17 @@ const projects = [
     ],
   },
   {
-    title: "Multi-User Flight Information Display (MUFIDS) Upgrades: Phase 2",
-    category: "Terminal Systems",
+    title: "Automated Parking Guidance & CCTV Systems: Phase 2",
+    category: "Technology & Security",
     status: "In Progress",
-    year: "2027",
+    year: "2028",
     value: "TBD",
-    description: "AKT Solutions provides planning, programming, and PMCM services for Phase 2 MUFIDS upgrades, expanding DVLED display systems across additional terminal areas and operational zones at PHL.",
-    image: "/mufids-phase-2.png",
+    description: "AKT Solutions provides planning, programming, and PMCM services for Phase 2 Automated Parking Guidance (APG) and CCTV Systems. TKH is deploying APGs and CCTV systems for 7,200+ parking spaces across Parking Garages C through F.",
+    image: "/parking-guidance-phase-2.png",
     highlights: [
-      "Expand digital display systems",
-      "Additional DVLED signage deployment",
-      "Integration with existing Phase 1 infrastructure",
+      "New camera deployment in Parking Garages C, D, E, and F",
+      "APG systems for 7,200+ parking spaces",
+      "Expanded guidance and monitoring across four parking garages",
     ],
   },
   {
@@ -92,10 +92,24 @@ const projects = [
       "Construction phase upcoming",
     ],
   },
+  {
+    title: "Multi-User Flight Information Display (MUFIDS) Upgrades: Phase 2",
+    category: "Terminal Systems",
+    status: "In Progress",
+    year: "2027",
+    value: "TBD",
+    description: "AKT Solutions provides planning, programming, and PMCM services for Phase 2 MUFIDS upgrades, expanding DVLED display systems across additional terminal areas and operational zones at PHL.",
+    image: "/mufids-phase-2.png",
+    highlights: [
+      "Expand digital display systems",
+      "Additional DVLED signage deployment",
+      "Integration with existing Phase 1 infrastructure",
+    ],
+  },
 ]
 
 const stats = [
-  { value: "5+", label: "Active Projects" },
+  { value: "10+", label: "Active Projects" },
   { value: "3+", label: "Years of Experience" },
   { value: "$100M+", label: "Projects Managed" },
   { value: "100%", label: "Client Satisfaction" },
