@@ -127,7 +127,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-black/30" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
-          <FadeIn className="max-w-3xl">
+          <FadeIn className="max-w-3xl mx-auto text-center">
             <p className="text-white font-medium tracking-wide uppercase mb-4">About Us</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
               Excellence for Aviation Infrastructure

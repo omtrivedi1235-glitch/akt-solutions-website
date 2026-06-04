@@ -103,7 +103,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-black/30" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-36 sm:pb-40 md:pb-44 relative z-10 w-full">
-          <FadeIn className="max-w-3xl">
+          <FadeIn className="max-w-3xl mx-auto text-center">
             <p className="text-white font-medium tracking-wide uppercase mb-4">Contact Us</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
               Let&apos;s Build Together

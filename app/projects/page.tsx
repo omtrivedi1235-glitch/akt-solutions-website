@@ -142,9 +142,8 @@ export default function ProjectsPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative pt-20 overflow-hidden min-h-[50vh] flex items-center">
-        {/* Background Image with Blur and Red Overlay */}
+      {/* Hero + stats — shared intro image; hero height matches About/Contact, stats belt at the bottom edge */}
+      <div className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/projects-airport.png"
@@ -156,36 +155,38 @@ export default function ProjectsPage() {
           <div className="absolute inset-0 bg-primary/40" />
           <div className="absolute inset-0 bg-black/30" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-36 sm:pb-40 md:pb-44 relative z-10 w-full">
-          <FadeIn className="max-w-3xl">
-            <p className="text-white font-medium tracking-wide uppercase mb-4">Our Projects</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
-              Transforming Infrastructure
-            </h1>
-            <p className="text-lg text-white/90 leading-relaxed">
-            From video surveillance upgrades to secure exit lane systems, explore our portfolio of successful projects. Each project reflects our commitment to innovation, quality, and operational excellence. We deliver solutions that enhance security, efficiency, and long-term performance.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
 
-      {/* Stats Bar */}
-      <section className="py-16 bg-primary overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <StaggerContainer className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 lg:gap-x-24" stagger={0.15}>
-            {stats.map((stat) => (
-              <StaggerItem key={stat.label} className="text-center min-w-[140px]">
-                <div className="text-5xl sm:text-6xl font-bold text-primary-foreground mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-base text-primary-foreground/80 uppercase tracking-wide">
-                  {stat.label}
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+        <section className="relative z-10 pt-20 min-h-[calc(50vh+6vh)] flex items-center justify-center px-4 sm:px-6 lg:px-8 pb-[6vh]">
+          <div className="max-w-7xl w-full py-24">
+            <FadeIn className="max-w-3xl mx-auto text-center">
+              <p className="text-white font-medium tracking-wide uppercase mb-4">Our Projects</p>
+              <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+                Transforming Infrastructure
+              </h1>
+              <p className="text-lg text-white/90 leading-relaxed">
+                From video surveillance upgrades to secure exit lane systems, explore our portfolio of successful projects at PHL. Each project reflects our commitment to innovation, quality, and operational excellence.
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+
+        <section className="relative z-10 py-16 bg-primary overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <StaggerContainer className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 lg:gap-x-24" stagger={0.15}>
+              {stats.map((stat) => (
+                <StaggerItem key={stat.label} className="text-center min-w-[140px]">
+                  <div className="text-5xl sm:text-6xl font-bold text-primary-foreground mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-base text-primary-foreground/80 uppercase tracking-wide">
+                    {stat.label}
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+      </div>
 
       {/* Projects Grid */}
       <section className="py-24 bg-background">
