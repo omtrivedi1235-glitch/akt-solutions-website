@@ -194,19 +194,9 @@ export default function AboutPage() {
             </p>
           </ScrollReveal>
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" stagger={0.04}>
-            {services.map((service) => (
+            {[...services, ...featuredServices].map((service) => (
               <StaggerItem key={service}>
                 <div className="flex items-start gap-3 bg-background rounded-lg p-4 h-full">
-                  <CheckCircle className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                  <span className="text-foreground text-sm">{service}</span>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          <StaggerContainer className="flex flex-wrap justify-center gap-4 mt-4 max-w-2xl mx-auto" stagger={0.1}>
-            {featuredServices.map((service) => (
-              <StaggerItem key={service}>
-                <div className="flex items-start gap-3 bg-background rounded-lg p-4 min-w-[220px]">
                   <CheckCircle className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                   <span className="text-foreground text-sm">{service}</span>
                 </div>
