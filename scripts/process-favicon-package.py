@@ -114,6 +114,16 @@ def build_master(size: int = TARGET) -> Image.Image:
     return fit_square(compact, size)
 
 
+def save_ico(path: str, sizes: list[int]) -> None:
+    images = [build_master(size) for size in sorted(sizes, reverse=True)]
+    images[0].save(
+        path,
+        format="ICO",
+        sizes=[(image.size[0], image.size[1]) for image in images],
+        append_images=images[1:],
+    )
+
+
 def save_outputs(master: Image.Image) -> None:
     public_dir = os.path.join(root, "public")
     app_dir = os.path.join(root, "app")
@@ -126,27 +136,15 @@ def save_outputs(master: Image.Image) -> None:
         "favicon-16x16.png": 16,
     }
 
-    png_sizes: list[tuple[int, Image.Image]] = []
     for filename, dim in outputs.items():
-        image = build_master(dim) if dim != TARGET else master
+        image = master if dim == TARGET else build_master(dim)
         image.save(os.path.join(public_dir, filename))
-        png_sizes.append((dim, image))
 
     master.save(os.path.join(app_dir, "icon.png"))
 
-    ico_images = [img for _, img in sorted(png_sizes, key=lambda item: item[0], reverse=True)]
-    ico_images[0].save(
-        os.path.join(public_dir, "favicon.ico"),
-        format="ICO",
-        sizes=[(img.size[0], img.size[1]) for img in ico_images],
-        append_images=ico_images[1:],
-    )
-    build_master(32).save(
-        os.path.join(app_dir, "favicon.ico"),
-        format="ICO",
-        sizes=[(32, 32), (16, 16)],
-        append_images=[build_master(16)],
-    )
+    ico_sizes = [48, 32, 16]
+    save_ico(os.path.join(public_dir, "favicon.ico"), ico_sizes)
+    save_ico(os.path.join(app_dir, "favicon.ico"), ico_sizes)
 
 
 if __name__ == "__main__":
