@@ -10,20 +10,6 @@ import { ArrowRight, Calendar, DollarSign } from "lucide-react"
 
 const projects = [
   {
-    title: "Video Surveillance System (VSS) Upgrade Program: Phase 1",
-    category: "Technology & Security",
-    status: "In Progress",
-    year: "2029",
-    value: "$52M",
-    description: "AKT Solutions provides planning, programming, and PM/CM services for Phase 1 of the VSS upgrade program, establishing program infrastructure, remote area surveillance coverage, and new monitoring workstations across PHL.",
-    image: "/vss-project.png",
-    highlights: [
-      "Eight new monitoring workstations",
-      "Remote area camera installations",
-      "Program-wide VMS infrastructure and integration",
-    ],
-  },
-  {
     title: "Automated Parking Guidance & CCTV Systems: Phase 1",
     category: "Technology & Security",
     status: "Completed",
@@ -114,7 +100,7 @@ const projects = [
     year: "2027",
     value: "TBD",
     description: "AKT Solutions provides planning, programming, and PM/CM services for Phase 2B surveillance upgrades, deploying new camera systems across Terminals D and E.",
-    image: "/vss-phase-2b.png",
+    image: "/vss-project.png",
     highlights: [
       "900 new cameras in Terminals D & E",
       "Terminal surveillance infrastructure upgrades",
@@ -128,7 +114,7 @@ const projects = [
     year: "2030",
     value: "TBD",
     description: "AKT Solutions will provide planning, programming, and PM/CM services for Phase 3 surveillance upgrades across Terminals B, C, and F, with new systems currently in design.",
-    image: "/vss-phase-3.png",
+    image: "/vss-phase-2b.png",
     highlights: [
       "New surveillance systems in Terminals B, C, and F",
       "Systems design and planning underway",
