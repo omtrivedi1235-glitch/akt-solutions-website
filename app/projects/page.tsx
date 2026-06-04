@@ -208,7 +208,7 @@ export default function ProjectsPage() {
           </ScrollReveal>
 
           {/* Projects */}
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" stagger={0.08} key={selectedStatus}>
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" stagger={0.08} trigger="mount" key={selectedStatus}>
             {filteredProjects.map((project) => (
               <StaggerItem key={project.title}>
                 <div className="bg-card rounded-xl border border-border overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300 group h-full">

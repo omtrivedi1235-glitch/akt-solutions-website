@@ -105,17 +105,41 @@ export function StaggerContainer({
   stagger = 0.1,
   once = true,
   amount = 0.15,
+  trigger = "inView",
 }: {
   children: ReactNode
   className?: string
   stagger?: number
   once?: boolean
   amount?: number
+  trigger?: "inView" | "mount"
 }) {
   const prefersReducedMotion = useReducedMotion()
 
   if (prefersReducedMotion) {
     return <div className={className}>{children}</div>
+  }
+
+  const variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: stagger,
+      },
+    },
+  }
+
+  if (trigger === "mount") {
+    return (
+      <motion.div
+        className={className}
+        initial="hidden"
+        animate="visible"
+        variants={variants}
+      >
+        {children}
+      </motion.div>
+    )
   }
 
   return (
@@ -124,14 +148,7 @@ export function StaggerContainer({
       initial="hidden"
       whileInView="visible"
       viewport={{ once, amount }}
-      variants={{
-        hidden: {},
-        visible: {
-          transition: {
-            staggerChildren: stagger,
-          },
-        },
-      }}
+      variants={variants}
     >
       {children}
     </motion.div>
