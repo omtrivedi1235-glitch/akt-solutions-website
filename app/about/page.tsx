@@ -1,5 +1,6 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { FadeIn, ScrollReveal, StaggerContainer, StaggerItem } from "@/components/scroll-reveal"
 import { Users, Target, Award, Clock, CheckCircle } from "lucide-react"
 import Image from "next/image"
 
@@ -35,7 +36,7 @@ const services = [
   "Applicable and relevant design experience",
   "Project administration",
   "Daily inspection",
-  "Project documentation (FAA/DOA/Tinicum)",
+  "Project documentation",
   "Submittal review/tenant permit reviews",
   "Design support",
   "Constructability reviews",
@@ -53,19 +54,24 @@ const services = [
   "Closeout support",
 ]
 
+const featuredServices = [
+  "Ebuilder",
+  "Website development",
+]
+
 const specializations = [
   "Security Access and Surveillance",
-  "Automated Secure Exit Portals",
+  "CCTV Systems (IP based, analog, high res, hybrid, etc.)",
   "Automated Parking Guidance Systems",
   "Terminal Announcement Systems",
   "In-Line Baggage Systems",
   "Fire Alarm Systems",
   "Automatic Vehicle Identification Systems",
   "FID/BID/MUFID Systems",
-  "CCTV Systems",
-  "Digital Recording",
+  "Automated Secure Exit Portals",
+  "Digital Recording (DVR, NVR, VMS, etc.)",
   "Anti-Backflow Systems",
-  "Universal Cable Distribution Systems",
+  "Universal Cable Distribution Systems (MDF, IDF, etc.)",
 ]
 
 const team = [
@@ -90,7 +96,7 @@ const team = [
   {
     name: "Keith McCall",
     role: "Project Manager",
-    description: "Infrastructure and surveillance systems specialist with decades of experience overseeing airport security technologies, CCTV integration, and complex field operations.",
+    description: "30+ years of experience overseeing airport security technologies, CCTV integration, power systems, and complex field operations as an infrastructure and surveillance systems specialist.",
     image: "/keith-mccall.png",
   },
   {
@@ -107,7 +113,7 @@ export default function AboutPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-20 overflow-hidden">
+      <section className="relative pt-20 overflow-hidden min-h-[50vh] flex items-center">
         {/* Background Image with Blur and Red Overlay */}
         <div className="absolute inset-0">
           <Image
@@ -121,7 +127,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-black/30" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
-          <div className="max-w-3xl">
+          <FadeIn className="max-w-3xl">
             <p className="text-white font-medium tracking-wide uppercase mb-4">About Us</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
               Excellence for Aviation Infrastructure
@@ -131,7 +137,7 @@ export default function AboutPage() {
               inspections, and construction-phase support for complex airport, commercial, and industrial 
               infrastructure developments.
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -139,7 +145,7 @@ export default function AboutPage() {
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <div>
+            <ScrollReveal direction="left">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">What We Do</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Our project management services include defining client needs, preparing bid documents, 
@@ -152,10 +158,14 @@ export default function AboutPage() {
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 AKT Solutions staff has the knowledge of specialized practices and limitations 
-                associated with aviation construction, bringing deep expertise to every project we undertake.
+                associated with transportation and aviation construction, bringing deep expertise to every project we undertake.
+
+
+                We specialize in working with Airports, Airlines, TSA, CBP, and local authorities
               </p>
-            </div>
-            <div className="bg-secondary rounded-2xl p-8">
+            </ScrollReveal>
+            <ScrollReveal direction="right" delay={0.1}>
+              <div className="bg-secondary rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-foreground mb-4">Our Specializations</h3>
               <ul className="space-y-3">
                 {specializations.map((specialization) => (
@@ -165,7 +175,8 @@ export default function AboutPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -173,7 +184,7 @@ export default function AboutPage() {
       {/* Services Section */}
       <section className="py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <p className="text-primary font-medium tracking-wide uppercase mb-2">Our Services</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
               Comprehensive Aviation Construction Services
@@ -181,56 +192,68 @@ export default function AboutPage() {
             <p className="text-muted-foreground max-w-2xl mx-auto">
               AKT Solutions provides a full range of services to support aviation construction projects from inception to closeout.
             </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          </ScrollReveal>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" stagger={0.04}>
             {services.map((service) => (
-              <div key={service} className="flex items-start gap-3 bg-background rounded-lg p-4">
-                <CheckCircle className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                <span className="text-foreground text-sm">{service}</span>
-              </div>
+              <StaggerItem key={service}>
+                <div className="flex items-start gap-3 bg-background rounded-lg p-4 h-full">
+                  <CheckCircle className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                  <span className="text-foreground text-sm">{service}</span>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
+          <StaggerContainer className="flex flex-wrap justify-center gap-4 mt-4 max-w-2xl mx-auto" stagger={0.1}>
+            {featuredServices.map((service) => (
+              <StaggerItem key={service}>
+                <div className="flex items-start gap-3 bg-background rounded-lg p-4 min-w-[220px]">
+                  <CheckCircle className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                  <span className="text-foreground text-sm">{service}</span>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Values Section */}
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <p className="text-primary font-medium tracking-wide uppercase mb-2">Our Values</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               What Drives Us Forward
             </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          </ScrollReveal>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value) => (
-              <div key={value.title} className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <value.icon className="h-8 w-8 text-primary" />
+              <StaggerItem key={value.title}>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <value.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">{value.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{value.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">{value.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Team Section */}
       <section className="py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <p className="text-primary font-medium tracking-wide uppercase mb-2">Our Team</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Leadership You Can Trust
             </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+          </ScrollReveal>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8" stagger={0.08}>
             {team.map((member) => (
-              <div
-                key={member.name}
-                className="bg-background rounded-xl border border-border p-8 text-center hover:border-primary/30 transition-colors"
-              >
+              <StaggerItem key={member.name}>
+                <div className="bg-background rounded-xl border border-border p-8 text-center hover:border-primary/30 transition-colors h-full">
                 {member.image ? (
                   <div className="w-20 h-20 rounded-full mx-auto mb-6 overflow-hidden relative">
                     <Image
@@ -260,16 +283,17 @@ export default function AboutPage() {
                 <h3 className="text-xl font-semibold text-foreground mb-1">{member.name}</h3>
                 <p className="text-primary font-medium text-sm mb-4">{member.role}</p>
                 <p className="text-muted-foreground">{member.description}</p>
-              </div>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Mission Section */}
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
+          <ScrollReveal className="max-w-3xl mx-auto text-center" direction="none">
             <p className="text-primary font-medium tracking-wide uppercase mb-2">Our Mission</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-8">
               Delivering Excellence in Aviation Construction
@@ -281,7 +305,7 @@ export default function AboutPage() {
               our work directly contributes to making travel safer, more efficient, and more 
               enjoyable for millions of passengers each year.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 

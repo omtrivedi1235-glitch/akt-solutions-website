@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { FadeIn, ScrollReveal } from "@/components/scroll-reveal"
 import { Mail, Send, AlertCircle } from "lucide-react"
 import { useState } from "react"
 import Image from "next/image"
@@ -88,7 +89,7 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-20 overflow-hidden">
+      <section className="relative pt-20 overflow-hidden min-h-[50vh] flex items-center">
         {/* Background Image with Blur and Red Overlay */}
         <div className="absolute inset-0">
           <Image
@@ -101,8 +102,8 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-primary/40" />
           <div className="absolute inset-0 bg-black/30" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
-          <div className="max-w-3xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-36 sm:pb-40 md:pb-44 relative z-10 w-full">
+          <FadeIn className="max-w-3xl">
             <p className="text-white font-medium tracking-wide uppercase mb-4">Contact Us</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
               Let&apos;s Build Together
@@ -111,7 +112,7 @@ export default function ContactPage() {
               Ready to start your next infrastructure project? Get in touch with 
               our team to discuss how AKT Solutions can deliver excellence for your needs.
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -120,6 +121,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
+            <ScrollReveal direction="left">
             <div className="bg-card rounded-2xl border border-border p-8">
               <h2 className="text-2xl font-bold text-foreground mb-6">Send Us a Message</h2>
               
@@ -273,8 +275,10 @@ export default function ContactPage() {
                 </form>
               )}
             </div>
+            </ScrollReveal>
 
             {/* Contact Information */}
+            <ScrollReveal direction="right" delay={0.15}>
             <div>
               <h2 className="text-2xl font-bold text-foreground mb-8">Contact Information</h2>
               <div className="flex gap-4">
@@ -289,6 +293,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

@@ -5,21 +5,22 @@ import Link from "next/link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { FadeIn, ScrollReveal, StaggerContainer, StaggerItem } from "@/components/scroll-reveal"
 import { ArrowRight, Calendar, DollarSign } from "lucide-react"
 
 const projects = [
   {
-    title: "Video Surveillance System (VSS) Upgrade Program",
+    title: "Video Surveillance System (VSS) Upgrade Program: Phase 1",
     category: "Technology & Security",
     status: "In Progress",
     year: "2029",
     value: "$52M",
-    description: "AKT Solutions provides planning, programming, and PMCM services for a comprehensive video surveillance upgrade across multiple terminals including Terminals B, C, D, E, F, and remote areas with new camera installations and workstations.",
+    description: "AKT Solutions provides planning, programming, and PM/CM services for Phase 1 of the VSS upgrade program, establishing program infrastructure, remote area surveillance coverage, and new monitoring workstations across PHL.",
     image: "/vss-project.png",
     highlights: [
-      "Phase 2B: 900 new cameras in Terminals D & E",
-      "Phase 3: New systems in design in Terminals B, C, F",
       "Eight new monitoring workstations",
+      "Remote area camera installations",
+      "Program-wide VMS infrastructure and integration",
     ],
   },
   {
@@ -28,11 +29,11 @@ const projects = [
     status: "Completed",
     year: "2025",
     value: "$15M",
-    description: "AKT Solutions provided planning, programming, and PMCM services for the deployment of new Automated Parking Guidance (APGS) & CCTV Systems for 4,400 parking spots in three garages (AE, AW, and B), including all required infrastructure.",
+    description: "AKT Solutions provided planning, programming, and PM/CM services for the deployment of new Automated Parking Guidance (APGS) & CCTV Systems for 4,400 parking spots in three garages (AE, AW, and B), including all required infrastructure.",
     image: "/parking-guidance.png",
     highlights: [
       "1,200 camera-based sensors installed",
-      "122 isle directional signs & 4 monument signs",
+      "122 aisle directional signs & 4 monument signs",
       "260 new cameras for operation monitoring",
     ],
   },
@@ -42,7 +43,7 @@ const projects = [
     status: "Completed",
     year: "2025",
     value: "$10M",
-    description: "AKT Solutions provided planning, programming, and PMCM services for the exit lane upgrade, including eight new Dormakaba unmanned exit lanes at Terminal D and E with complete area renovations.",
+    description: "AKT Solutions provided planning, programming, and PM/CM services for the exit lane upgrade, including eight new Dormakaba unmanned exit lanes at Terminal D and E with complete area renovations.",
     image: "/exit-lanes.png",
     highlights: [
       "8 new automated exit lanes (4 per terminal)",
@@ -56,8 +57,8 @@ const projects = [
     status: "Completed",
     year: "2026",
     value: "$10M",
-    description: "AKT Solutions provided planning, programming, and PMCM services for the installation of new DVLED video wall systems across Terminal AW through E ticket lobbies, including signs over ticket counters and video walls at exit lanes and CBP areas.",
-    image: "/mufids.jpg",
+    description: "AKT Solutions provided planning, programming, and PM/CM services for the installation of new DVLED video wall systems across Terminal AW through E ticket lobbies, including signs over ticket counters and video walls at exit lanes and CBP areas.",
+    image: "/mufids-phase-1.png",
     highlights: [
       "5 ticket lobby video wall systems",
       "DVLED signs over ticket counters",
@@ -70,7 +71,7 @@ const projects = [
     status: "In Progress",
     year: "2028",
     value: "TBD",
-    description: "AKT Solutions provides planning, programming, and PMCM services for Phase 2 Automated Parking Guidance (APG) and CCTV Systems. TKH is deploying APGs and CCTV systems for 7,200+ parking spaces across Parking Garages C through F.",
+    description: "AKT Solutions provides planning, programming, and PM/CM services for Phase 2 Automated Parking Guidance (APG) and CCTV Systems. TKH is deploying APGs and CCTV systems for 7,200+ parking spaces across Parking Garages C through F.",
     image: "/parking-guidance-phase-2.png",
     highlights: [
       "New camera deployment in Parking Garages C, D, E, and F",
@@ -84,7 +85,7 @@ const projects = [
     status: "In Planning",
     year: "2029",
     value: "TBD",
-    description: "AKT Solutions will provide planning, programming, and PMCM services for Phase 2 of the automated exit lane program covering Terminal A-East and F with new exit lane installations.",
+    description: "AKT Solutions will provide planning, programming, and PM/CM services for Phase 2 of the automated exit lane program covering Terminal A-East and F with new exit lane installations.",
     image: "/phl-exit-lane-phase-2.png",
     highlights: [
       "Terminal A-East new exit lanes",
@@ -98,7 +99,7 @@ const projects = [
     status: "In Progress",
     year: "2027",
     value: "TBD",
-    description: "AKT Solutions provides planning, programming, and PMCM services for Phase 2 MUFIDS upgrades, expanding DVLED display systems across additional terminal areas and operational zones at PHL.",
+    description: "AKT Solutions provides planning, programming, and PM/CM services for Phase 2 MUFIDS upgrades, expanding DVLED display systems across additional terminal areas and operational zones at PHL.",
     image: "/mufids-phase-2.png",
     highlights: [
       "Expand digital display systems",
@@ -106,11 +107,38 @@ const projects = [
       "Integration with existing Phase 1 infrastructure",
     ],
   },
+  {
+    title: "Video Surveillance System (VSS) Upgrade Program: Phase 2B",
+    category: "Technology & Security",
+    status: "In Progress",
+    year: "2027",
+    value: "TBD",
+    description: "AKT Solutions provides planning, programming, and PM/CM services for Phase 2B surveillance upgrades, deploying new camera systems across Terminals D and E.",
+    image: "/vss-phase-2b.png",
+    highlights: [
+      "900 new cameras in Terminals D & E",
+      "Terminal surveillance infrastructure upgrades",
+      "Integration with existing VSS program systems",
+    ],
+  },
+  {
+    title: "Video Surveillance System (VSS) Upgrade Program: Phase 3",
+    category: "Technology & Security",
+    status: "In Planning",
+    year: "2030",
+    value: "TBD",
+    description: "AKT Solutions will provide planning, programming, and PM/CM services for Phase 3 surveillance upgrades across Terminals B, C, and F, with new systems currently in design.",
+    image: "/vss-phase-3.png",
+    highlights: [
+      "New surveillance systems in Terminals B, C, and F",
+      "Systems design and planning underway",
+      "Expansion of airport-wide video coverage",
+    ],
+  },
 ]
 
 const stats = [
   { value: "10+", label: "Active Projects" },
-  { value: "3+", label: "Years of Experience" },
   { value: "$100M+", label: "Projects Managed" },
   { value: "100%", label: "Client Satisfaction" },
 ]
@@ -129,7 +157,7 @@ export default function ProjectsPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-20 overflow-hidden">
+      <section className="relative pt-20 overflow-hidden min-h-[50vh] flex items-center">
         {/* Background Image with Blur and Red Overlay */}
         <div className="absolute inset-0">
           <Image
@@ -142,35 +170,34 @@ export default function ProjectsPage() {
           <div className="absolute inset-0 bg-primary/40" />
           <div className="absolute inset-0 bg-black/30" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
-          <div className="max-w-3xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-36 sm:pb-40 md:pb-44 relative z-10 w-full">
+          <FadeIn className="max-w-3xl">
             <p className="text-white font-medium tracking-wide uppercase mb-4">Our Projects</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
               Transforming Infrastructure
             </h1>
             <p className="text-lg text-white/90 leading-relaxed">
-              From video surveillance upgrades to secure exit lane systems, explore our portfolio of 
-              successful projects.
+            From video surveillance upgrades to secure exit lane systems, explore our portfolio of successful projects. Each project reflects our commitment to innovation, quality, and operational excellence. We deliver solutions that enhance security, efficiency, and long-term performance.
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Stats Bar */}
-      <section className="py-16 bg-primary">
+      <section className="py-16 bg-primary overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggerContainer className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 lg:gap-x-24" stagger={0.15}>
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-4xl sm:text-5xl font-bold text-primary-foreground mb-2">
+              <StaggerItem key={stat.label} className="text-center min-w-[140px]">
+                <div className="text-5xl sm:text-6xl font-bold text-primary-foreground mb-2">
                   {stat.value}
                 </div>
-                <div className="text-sm text-primary-foreground/80 uppercase tracking-wide">
+                <div className="text-base text-primary-foreground/80 uppercase tracking-wide">
                   {stat.label}
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -178,7 +205,7 @@ export default function ProjectsPage() {
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Status Filter */}
-          <div className="flex flex-wrap gap-3 mb-12 justify-center">
+          <ScrollReveal className="flex flex-wrap gap-3 mb-12 justify-center">
             {statuses.map((status) => (
               <button
                 key={status}
@@ -192,22 +219,20 @@ export default function ProjectsPage() {
                 {status}
               </button>
             ))}
-          </div>
+          </ScrollReveal>
 
           {/* Projects */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" stagger={0.08} key={selectedStatus}>
             {filteredProjects.map((project) => (
-              <div
-                key={project.title}
-                className="bg-card rounded-xl border border-border overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
-              >
+              <StaggerItem key={project.title}>
+                <div className="bg-card rounded-xl border border-border overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300 group h-full">
                 <div className="h-48 bg-secondary flex items-center justify-center relative overflow-hidden">
                   {project.image ? (
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className={`object-cover ${project.image.includes("vss-project") ? "object-[50%_30%]" : "object-center"}`}
+                      className={`object-cover ${project.image.includes("vss") ? "object-[50%_30%]" : "object-center"}`}
                     />
                   ) : (
                     <span className="text-6xl font-bold text-primary/20">{project.category.charAt(0)}</span>
@@ -253,15 +278,16 @@ export default function ProjectsPage() {
                     ))}
                   </ul>
                 </div>
-              </div>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-24 bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" direction="none">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Have a Project in Mind?
           </h2>
@@ -276,7 +302,7 @@ export default function ProjectsPage() {
             Start a Conversation
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
-        </div>
+        </ScrollReveal>
       </section>
 
       <Footer />

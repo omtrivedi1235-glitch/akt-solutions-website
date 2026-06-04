@@ -3,6 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
@@ -14,13 +15,22 @@ const navLinks = [
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      event.preventDefault()
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      setIsMenuOpen(false)
+    }
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center overflow-hidden h-20">
+          <Link href="/" className="flex items-center overflow-hidden h-20" onClick={handleHomeClick}>
             <Image
               src="/logo.png"
               alt="AKT Solutions - Return to Home"
@@ -37,6 +47,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={link.href === "/" ? handleHomeClick : undefined}
                 className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors uppercase tracking-wide"
               >
                 {link.label}
@@ -62,8 +73,14 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={(event) => {
+                    if (link.href === "/") {
+                      handleHomeClick(event)
+                    } else {
+                      setIsMenuOpen(false)
+                    }
+                  }}
                   className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors uppercase tracking-wide py-2"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
