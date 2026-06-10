@@ -5,8 +5,11 @@ import './globals.css'
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: 'AKT Solutions | Project and Construction management Services',
-  description: 'AKT Solutions specializes in engineering and project management at Philadelphia International Airport (PHL). Delivering excellence in aviation infrastructure.',
+  title: {
+    default: 'AKT Solutions | Project & Construction Management Services',
+  },
+  description:
+    'AKT Solutions provides project management, construction management, and engineering services for aviation and infrastructure projects.',
   manifest: '/site.webmanifest',
   icons: {
     icon: [

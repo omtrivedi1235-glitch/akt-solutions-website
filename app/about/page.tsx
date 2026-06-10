@@ -1,8 +1,15 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FadeIn, ScrollReveal, StaggerContainer, StaggerItem } from "@/components/scroll-reveal"
 import { Users, Target, Award, Clock, CheckCircle } from "lucide-react"
 import Image from "next/image"
+
+export const metadata: Metadata = {
+  title: "About Us | Engineering & Project Management",
+  description:
+    "Learn about AKT Solutions and our experience delivering engineering, construction, and project management services.",
+}
 
 const values = [
   {

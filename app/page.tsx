@@ -1,9 +1,16 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Building2, Shield, HardHat, CheckCircle2, Award } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FadeIn, ScrollReveal, StaggerContainer, StaggerItem } from "@/components/scroll-reveal"
+
+export const metadata: Metadata = {
+  title: "AKT Solutions | Project & Construction Management Services",
+  description:
+    "AKT Solutions provides project management, construction management, and engineering services for aviation and infrastructure projects.",
+}
 
 const services = [
   {
