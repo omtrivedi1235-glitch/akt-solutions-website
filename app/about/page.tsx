@@ -112,6 +112,12 @@ const team = [
     description: "Specialization in digital systems, technical operations, and organizational support across projects.",
     image: "/om-trivedi.png",
   },
+  {
+    name: "Charles Kanneh",
+    role: "Resident Engineer",
+    description: "Resident Engineer specializing in project documentation, supporting accurate records and reporting throughout project delivery.",
+    image: "/charles-kanneh.png",
+  },
 ]
 
 export default function AboutPage() {
@@ -260,7 +266,7 @@ export default function AboutPage() {
               Leadership You Can Trust
             </h2>
           </ScrollReveal>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8" stagger={0.08}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" stagger={0.08}>
             {team.map((member) => (
               <StaggerItem key={member.name}>
                 <div className="bg-background rounded-xl border border-border p-8 text-center hover:border-primary/30 transition-colors h-full">
@@ -277,8 +283,10 @@ export default function AboutPage() {
                           ? "scale-125 object-[42%_10%]"
                           : member.image.includes("keith-mccall")
                           ? "scale-100 object-center"
-                          : member.image.includes("greg-furey")
+                          :                         member.image.includes("greg-furey")
                           ? "scale-110 object-center"
+                          : member.image.includes("charles-kanneh")
+                          ? "scale-190 object-[50%_48%]"
                           : "scale-125"
                       }`}
                     />
