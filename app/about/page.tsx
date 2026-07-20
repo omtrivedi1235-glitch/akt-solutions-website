@@ -115,7 +115,7 @@ const team = [
   {
     name: "Charles Kanneh",
     role: "Resident Engineer",
-    description: "Resident Engineer specializing in project documentation, supporting accurate records and reporting throughout project delivery.",
+    description: "Specialization in project documentation, supporting accurate records and reporting throughout project delivery.",
     image: "/charles-kanneh.png",
   },
 ]
